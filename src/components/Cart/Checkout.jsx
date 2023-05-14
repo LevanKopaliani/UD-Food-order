@@ -48,9 +48,17 @@ const Checkout = (props) => {
 
     /// submit ////
     if (!formIsValid) {
+      return;
     }
-  };
 
+    props.onSubmit({
+      name: enteredName,
+      address: enteredAddress,
+      city: enteredCity,
+      zip: enteredZip,
+    });
+  };
+  /// invalid Classes
   const nameControlCLass = `${Classes.control} ${
     formInputValidity.name ? "" : Classes.invalid
   }`;
